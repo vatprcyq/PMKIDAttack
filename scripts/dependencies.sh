@@ -31,33 +31,33 @@ if [[ "$1" = "install" ]]; then
 	if [[ -e /sd ]]; then
 		add_log "Installing on sd"
 
-	    opkg --dest sd install /pineapple/modules/PMKIDAttack/scripts/ipk/hcxtools_5.1.3-1_ar71xx.ipk >> $LOGFILE
+	    opkg --dest sd install hcxtools >> $LOGFILE
 
 		if [[ $? -ne 0 ]]; then
-			add_log "ERROR: opkg --dest sd install hcxtools_5.1.3-1_ar71xx.ipk failed"
+			add_log "ERROR: opkg --dest sd install hcxtools failed"
 			exit 1
 		fi
 
-		opkg --dest sd install /pineapple/modules/PMKIDAttack/scripts/ipk/hcxdumptool_5.1.3-1_ar71xx.ipk >> $LOGFILE
+		opkg --dest sd install hcxdumptool >> $LOGFILE
 
 		if [[ $? -ne 0 ]]; then
-			add_log "ERROR: opkg --dest sd install hcxdumptool_5.1.3-1_ar71xx.ipk failed"
+			add_log "ERROR: opkg --dest sd install hcxdumptool failed"
 			exit 1
 		fi
 	else
 		add_log "Installing on disk"
 
-        opkg install /pineapple/modules/PMKIDAttack/scripts/ipk/hcxtools_5.1.3-1_ar71xx.ipk
+        opkg install hcxtools
 
 		if [[ $? -ne 0 ]]; then
-			add_log "ERROR: opkg install hcxtools_5.1.3-1_ar71xx.ipk failed"
+			add_log "ERROR: opkg install hcxtools failed"
 			exit 1
 		fi
 
-		opkg install /pineapple/modules/PMKIDAttack/scripts/ipk/hcxdumptool_5.1.3-1_ar71xx.ipk
+		opkg install hcxdumptool
 
 		if [[ $? -ne 0 ]]; then
-			add_log "ERROR: opkg install hcxdumptool_5.1.3-1_ar71xx.ipk failed"
+			add_log "ERROR: opkg install hcxdumptool failed"
 			exit 1
 		fi
 	fi
